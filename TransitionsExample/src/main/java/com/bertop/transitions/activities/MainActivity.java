@@ -15,7 +15,7 @@ import com.bertop.transitions.R;
 public class MainActivity extends Activity {
 
     ListView mainList;
-    String[] transitions = new String[]{"First Transition","Second Transition", "Third Transition"};
+    String[] transitions = new String[]{"First Transition","Second Transition", "Third Transition", "Card Flip"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,13 @@ public class MainActivity extends Activity {
         mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(),SingleTransitionActivity.class);
-                intent.putExtra("type", position);
+                Intent intent;
+                if (position==3) {
+                    intent = new Intent(view.getContext(),CardFlipActivity.class);
+                } else {
+                    intent = new Intent(view.getContext(),SingleTransitionActivity.class);
+                    intent.putExtra("type", position);
+                }
                 startActivity(intent);
             }
         });

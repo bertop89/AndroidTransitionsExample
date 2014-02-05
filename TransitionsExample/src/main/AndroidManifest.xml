@@ -18,7 +18,13 @@
         </activity>
         <activity
             android:name=".activities.SingleTransitionActivity"
-            android:label="Single Transition">
+            android:label="Single Transition"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
+        <activity
+            android:name=".activities.CardFlipActivity"
+            android:label="Card Flip"
+            android:parentActivityName=".activities.MainActivity">
         </activity>
 
     </application>

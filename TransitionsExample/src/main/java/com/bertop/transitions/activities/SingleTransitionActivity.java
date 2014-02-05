@@ -20,7 +20,7 @@ public class SingleTransitionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         int type = getIntent().getIntExtra("type",0);
         Fragment fragment;
         switch (type) {
@@ -44,7 +44,6 @@ public class SingleTransitionActivity extends Activity {
                     .commit();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
