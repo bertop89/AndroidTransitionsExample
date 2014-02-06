@@ -26,6 +26,17 @@
             android:label="Card Flip"
             android:parentActivityName=".activities.MainActivity">
         </activity>
+        <activity
+            android:name=".activities.ViewAnimationActivity"
+            android:label="View Animation"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
+        <activity
+            android:name=".activities.ListActivity"
+            android:label="List Activity"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
+
 
     </application>
 
