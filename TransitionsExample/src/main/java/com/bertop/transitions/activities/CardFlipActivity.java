@@ -1,6 +1,5 @@
 package com.bertop.transitions.activities;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -15,7 +14,7 @@ import com.bertop.transitions.R;
 /**
  * Created by Alberto Polidura on 5/02/14.
  */
-public class CardFlipActivity extends Activity
+public class CardFlipActivity extends BaseActivity
         implements FragmentManager.OnBackStackChangedListener {
     /**
      * A handler object, used for deferring UI operations.

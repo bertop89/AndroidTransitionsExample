@@ -1,6 +1,5 @@
 package com.bertop.transitions.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,7 +17,7 @@ import java.util.List;
 /**
  * Created by Alberto Polidura on 6/02/14.
  */
-public class ListActivity extends Activity {
+public class ListActivity extends BaseActivity {
 
     ListView mainList;
     String[] items = new String[]{"Long","Click", "Any", "Of", "These", "Items"};

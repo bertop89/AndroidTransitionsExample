@@ -36,6 +36,16 @@
             android:label="List Activity"
             android:parentActivityName=".activities.MainActivity">
         </activity>
+        <activity
+            android:name=".activities.ActivityAnimations"
+            android:label="Gallery"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
+        <activity
+            android:name=".activities.PictureDetailsActivity"
+            android:label="Details"
+            android:theme="@style/Transparent" >
+        </activity>
 
 
     </application>

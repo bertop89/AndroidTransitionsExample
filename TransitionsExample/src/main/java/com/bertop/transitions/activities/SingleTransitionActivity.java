@@ -1,6 +1,5 @@
 package com.bertop.transitions.activities;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +13,7 @@ import com.bertop.transitions.fragments.ThirdTransition;
 /**
  * Created by Alberto Polidura on 4/02/14.
  */
-public class SingleTransitionActivity extends Activity {
+public class SingleTransitionActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,6 +1,5 @@
 package com.bertop.transitions.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,7 +11,7 @@ import com.bertop.transitions.R;
 /**
  * Created by Alberto Polidura on 6/02/14.
  */
-public class ViewAnimationActivity extends Activity {
+public class ViewAnimationActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
