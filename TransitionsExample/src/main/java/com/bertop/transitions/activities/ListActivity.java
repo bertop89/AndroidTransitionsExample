@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.bertop.transitions.R;
 
@@ -25,8 +26,18 @@ public class ListActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.list_controls);
         mainList = (ListView)findViewById(R.id.mainList);
+
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> spinneradapter = ArrayAdapter.createFromResource(this,
+                R.array.transitions, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        spinneradapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(spinneradapter);
+        spinner.setSelection(0);
 
         final List<String> list = new ArrayList<String>(Array.getLength(items));
         Collections.addAll(list, items);
@@ -36,14 +47,26 @@ public class ListActivity extends Activity {
         mainList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, final View view, final int position, long id) {
-                view.animate().setDuration(300).translationX(1200).withEndAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        list.remove(position);
-                        adapter.notifyDataSetChanged();
-                        view.setTranslationX(0);
-                    }
-                });
+                if (spinner.getSelectedItemPosition()==0) {
+                    view.animate().setDuration(1000).alpha(0).withEndAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            list.remove(position);
+                            adapter.notifyDataSetChanged();
+                            view.setAlpha(1);
+                        }
+                    });
+                } else {
+                    view.animate().setDuration(300).translationX(1200).withEndAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            list.remove(position);
+                            adapter.notifyDataSetChanged();
+                            view.setTranslationX(0);
+                        }
+                    });
+
+                }
                 return false;
             }
         });
