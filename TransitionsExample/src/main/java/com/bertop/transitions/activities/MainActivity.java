@@ -1,11 +1,15 @@
 package com.bertop.transitions.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -22,7 +26,8 @@ public class MainActivity extends Activity {
             "Card Flip",
             "View Animation",
             "ListActivity",
-            "Gallery"
+            "Gallery",
+            "Buttons"
     };
 
     @Override
@@ -37,7 +42,9 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
-                if (position==6) {
+                if (position==7) {
+                    intent = new Intent(view.getContext(),ButtonAnimations.class);
+                } else if (position==6) {
                     intent = new Intent(view.getContext(),ActivityAnimations.class);
                 } else if (position==5) {
                     intent = new Intent(view.getContext(),ListActivity.class);
@@ -53,7 +60,18 @@ public class MainActivity extends Activity {
                 overridePendingTransition(R.animator.push_left_in,R.animator.push_left_out);
             }
         });
+        
+        animateList(getApplicationContext());
 
+    }
+
+    private void animateList(Context c) {
+        Animation animation;
+        animation = AnimationUtils.loadAnimation(c, R.animator.subjects_enter);
+        animation.setFillEnabled(true);
+        animation.setFillAfter(true);
+        animation.setInterpolator(new AccelerateDecelerateInterpolator());
+        mainList.startAnimation(animation);
     }
 
 

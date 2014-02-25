@@ -46,6 +46,11 @@
             android:label="Details"
             android:theme="@style/Transparent" >
         </activity>
+        <activity
+            android:name=".activities.ButtonAnimations"
+            android:label="Buttons"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
 
 
     </application>
